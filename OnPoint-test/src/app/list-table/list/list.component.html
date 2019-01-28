@@ -1,0 +1,23 @@
+<div *ngIf="!showList">
+  Loading...
+</div>
+<div *ngIf="showList" class="body">
+  <table class="table" id="data">
+    <tr class="table-row-head">
+      <td (click)="sortList(1)">Id</td>
+      <td (click)="sortList(2)">Value</td>
+      <td>Name</td>
+    </tr>
+    <tr *ngFor="let data of showList" class="table-row">
+      <td>{{ data.id }}</td>
+      <td>{{ data.value }}</td>
+      <td>{{ data.name }}</td>
+    </tr>
+  </table>
+  <br/>
+  <div class="footer">
+      <button (click)="previousPage()" [disabled]="prevDisabled" class="btn">-</button>
+      <div class="page-count">{{ page }} of {{ maxPage }}</div>
+      <button (click)="nextPage()" [disabled]="nextDisabled" class="btn">+</button>
+  </div>
+</div>
